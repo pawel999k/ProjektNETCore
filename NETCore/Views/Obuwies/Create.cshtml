@@ -1,0 +1,72 @@
+﻿@model NETCore.Models.Obuwie
+
+@{
+    ViewData["Title"] = "Dodaj";
+}
+
+<h1>Dodaj nowe obuwie</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nazwa" class="control-label"></label>
+                <input asp-for="Nazwa" class="form-control" />
+                <span asp-validation-for="Nazwa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rozmiar" class="control-label"></label>
+                <input asp-for="Rozmiar" class="form-control" />
+                <span asp-validation-for="Rozmiar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+
+                <label asp-for="Rodzaj" class="control-label"></label>
+                <select asp-for="Rodzaj" class="form-control">
+                    <option value="">Proszę wybrać rodzaj obuwia</option>
+                    <option>Półbuty</option>
+                    <option>Robocze</option>
+                    <option>Sandały</option>
+                    <option>Sportowe</option>
+                    <option>Wizytowe</option>
+                    <option>Zimowe</option>
+                    <option>Pozostałe</option>
+
+                </select>
+
+                <span asp-validation-for="Rodzaj" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="ManorWomen" class="control-label"></label>
+                <select asp-for="ManorWomen" class="form-control">
+                    <option value="">Proszę wybrać czy jest to obuwie męskie czy damskie</option>
+                    <option>Damskie</option>
+                    <option>Męskie</option>
+
+                </select>
+
+                <span asp-validation-for="ManorWomen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Cena" class="control-label"></label>
+                <input asp-for="Cena" class="form-control" />
+                <span asp-validation-for="Cena" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Wróc do listy</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

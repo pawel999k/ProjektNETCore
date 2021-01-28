@@ -1,0 +1,66 @@
+﻿
+@model IEnumerable<NETCore.Models.Obuwie>
+
+@{
+    ViewData["Title"] = "Sportowe";
+}
+
+<h1 class="text-center">Rodzaj obuwia: Sportowe</h1>
+
+<p>
+    <a asp-action="Create">Dodaj nowe obuwie</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Nazwa)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rodzaj)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rozmiar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ManorWomen)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cena)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.Rodzaj == "Sportowe")
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nazwa)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rodzaj)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rozmiar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ManorWomen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cena)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edytuj</a> |
+                <a asp-action="Details" asp-route-id="@item.Id">Szczegóły</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Usuń</a>
+            </td>
+        </tr>
+            }
+        }
+    </tbody>
+</table>
+
+

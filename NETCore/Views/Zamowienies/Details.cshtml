@@ -1,0 +1,36 @@
+﻿@model NETCore.Models.Zamowienie
+
+@{
+    ViewData["Title"] = "Szczegóły";
+}
+
+<h1>Szczegóły zamówienia</h1>
+
+<div>
+    <h4>Zamowienie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Data)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Data)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Obuwie)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Obuwie.Id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Klient)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Klient.Id)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edytuj</a> |
+    <a asp-action="Index">Wróc do listy</a>
+</div>
